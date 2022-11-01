@@ -10,3 +10,29 @@ scrape_configs:
   - job_name: "node"
     static_configs:
       - targets: ["node_exporter:9100"]
+
+  - job_name: "node-es-1"
+    static_configs:
+      - targets: ["192.168.1.137:9100", "192.168.1.106:9100", "192.168.1.160:9100", "192.168.1.243:9100","192.168.1.237:9100"]
+
+  #- job_name: "node-es-2"
+  #  static_configs:
+  #    - targets: ["192.168.1.106:9100"]
+
+  #- job_name: "node-es-3"
+  #  static_configs:
+  #    - targets: ["192.168.1.160:9100"]
+
+  #- job_name: "node-es-4"
+  #  static_configs:
+  #    - targets: ["192.168.1.243:9100"]
+
+  #- job_name: "node-es-5"
+  #  static_configs:
+  #    - targets: ["192.168.1.237:9100"]
+
+  - job_name: "cadvisor"
+    scrape_interval: 5s
+    static_configs:
+      - targets: ["192.168.1.26:8080"]
+
