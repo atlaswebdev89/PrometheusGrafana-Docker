@@ -1,0 +1,25 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: "prometheus"
+    scrape_interval: 15s
+    static_configs:
+      - targets: ["prometheus:9090"]
+
+  - job_name: "current-server"
+    static_configs:
+      - targets: ["node_exporter:9100"]
+
+  - job_name: "elastic-cluster"
+    static_configs:
+      - targets: ["192.168.200.201:9100", "192.168.200.202:9100", "192.168.200.207:9100", "192.168.200.208:9100","192.168.200.254:9100", "192.168.200.205:9100"]
+
+  - job_name: "dhcp-cluster"
+    static_configs:
+      - targets: ["192.168.200.218:9100", "192.168.200.219:9100"]
+
+  - job_name: "cadvisor-current-node"
+    scrape_interval: 5s
+    static_configs:
+      - targets: ["192.168.200.203:8080"]
